@@ -9,7 +9,7 @@ public class HelloworldController {
 
     @RequestMapping("/sayHello.html")
     public @ResponseBody String say(){
-        return "Hello Spring Boot";
+        return "Hello world Spring Boot";
     }
 
 }
