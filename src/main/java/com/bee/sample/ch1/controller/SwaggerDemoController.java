@@ -28,12 +28,12 @@ public class SwaggerDemoController {
 
     //新增
     @ApiOperation(value = "新增餐馆",notes = "新增餐馆")
-    @ApiImplicitParams({
+    /*@ApiImplicitParams({
             @ApiImplicitParam(name = "restaurantId",value = "restaurantId", required = true, dataType = "Long"),
-            @ApiImplicitParam(name = "name",value = "name", required = true, dataType = "String")})
+            @ApiImplicitParam(name = "name",value = "name", required = true, dataType = "String")})*/
     @RequestMapping(value = "/addAndUpdateRestaurant",method = RequestMethod.POST)
     @ResponseBody
-    public ResponseInfo addAndUpdateRestaurant(RestaurantEntity entity){
+    public ResponseInfo addAndUpdateRestaurant(@RequestBody RestaurantEntity entity){
         ResponseInfo responseInfo = new ResponseInfo();
 
         restaurantService.addAndUpdateRestaurant(entity);

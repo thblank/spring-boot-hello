@@ -2,6 +2,7 @@ package com.bee.sample.ch1;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -19,6 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
+@PropertySource("classpath:swagger.properties")
 public class Swagger2 {
 
     /**
@@ -31,11 +33,11 @@ public class Swagger2 {
     @Bean
     public Docket createRestApi(){
         return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.bee.sample.ch1.controller"))
-                .paths(PathSelectors.any())
-                .build();
+//                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
     }
 
     /**
